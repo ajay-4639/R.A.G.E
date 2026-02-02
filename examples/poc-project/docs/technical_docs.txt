@@ -1,0 +1,37 @@
+ACME Corp Technical Documentation
+
+ARCHITECTURE OVERVIEW
+The ACME platform is built on a microservices architecture running on Kubernetes.
+Each service communicates via gRPC for internal calls and REST for external APIs.
+The system handles approximately 10,000 requests per second at peak load.
+
+DATABASE LAYER
+Primary database: PostgreSQL 15 with read replicas for scaling.
+Cache layer: Redis cluster for session management and frequently accessed data.
+Search engine: Elasticsearch for full-text search and product catalog queries.
+Vector database: Qdrant for AI-powered semantic search and recommendations.
+
+AUTHENTICATION
+OAuth 2.0 with PKCE flow for web and mobile applications.
+API keys with rate limiting for third-party integrations.
+JWT tokens with 15-minute expiration and refresh token rotation.
+Multi-factor authentication (MFA) is mandatory for admin accounts.
+
+API RATE LIMITS
+Free tier: 100 requests per minute
+Pro tier: 1,000 requests per minute
+Enterprise tier: 10,000 requests per minute
+Burst allowance: 2x tier limit for up to 10 seconds
+
+DEPLOYMENT PIPELINE
+All code changes go through automated CI/CD pipeline.
+Test coverage requirement: minimum 80% for all services.
+Staging environment mirrors production at 1/10th scale.
+Blue-green deployments with automatic rollback on failure.
+Feature flags managed through LaunchDarkly for gradual rollouts.
+
+MONITORING AND ALERTING
+Prometheus for metrics collection with 30-day retention.
+Grafana dashboards for real-time system visibility.
+PagerDuty integration for on-call incident management.
+SLO: 99.95% uptime for core services measured monthly.

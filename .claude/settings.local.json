@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python -m pytest:*)",
+      "Bash(cd:*)",
+      "Bash(python:*)",
+      "Bash(more:*)",
+      "Bash(dir \"c:\\\\Users\\\\saiaj\\\\Desktop\\\\RAG_OS\"\" /b)",
+      "Bash(find:*)",
+      "Bash(xargs cat:*)",
+      "Bash(docker-compose build:*)",
+      "Bash(curl:*)",
+      "Bash(docker-compose down:*)",
+      "Bash(npm install:*)",
+      "Bash(docker ps:*)"
+    ]
+  }
+}

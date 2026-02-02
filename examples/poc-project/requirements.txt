@@ -1,0 +1,10 @@
+# Install RAG OS with remote client support
+rag-os[remote]
+
+# LLM providers (install the one you want to use)
+openai>=1.0.0
+# anthropic>=0.18.0
+# google-generativeai>=0.3.0
+
+# For loading environment variables
+python-dotenv>=1.0.0

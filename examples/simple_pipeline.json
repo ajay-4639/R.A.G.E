@@ -1,0 +1,40 @@
+{
+  "name": "simple-rag-pipeline",
+  "version": "1.0.0",
+  "description": "A basic RAG pipeline for document Q&A",
+  "metadata": {
+    "author": "RAG OS Team",
+    "created": "2024-01-01"
+  },
+  "default_config": {
+    "log_level": "info"
+  },
+  "steps": [
+    {
+      "step_id": "ingest_documents",
+      "step_type": "ingestion",
+      "step_class": "TextFileIngestionStep",
+      "config": {
+        "source_path": "./documents"
+      }
+    },
+    {
+      "step_id": "chunk_text",
+      "step_type": "chunking",
+      "step_class": "TokenAwareChunkingStep",
+      "config": {
+        "chunk_size": 512
+      },
+      "dependencies": ["ingest_documents"]
+    },
+    {
+      "step_id": "embed_chunks",
+      "step_type": "embedding",
+      "step_class": "OpenAIEmbeddingStep",
+      "config": {
+        "model": "text-embedding-3-small"
+      },
+      "dependencies": ["chunk_text"]
+    }
+  ]
+}

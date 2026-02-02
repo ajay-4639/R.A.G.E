@@ -1,0 +1,26 @@
+ACME Corp Product FAQ
+
+Q: What payment methods do you accept?
+A: We accept Visa, MasterCard, American Express, PayPal, Apple Pay, and Google Pay. For enterprise customers, we also accept wire transfers and purchase orders.
+
+Q: How do I track my order?
+A: Once your order ships, you will receive a tracking number via email. You can also log into your account and check the order status under "My Orders".
+
+Q: Do you offer bulk discounts?
+A: Yes, we offer tiered pricing for bulk orders. Orders of 10+ units receive 10% off, 50+ units receive 20% off, and 100+ units receive 30% off. Contact our sales team at sales@acmecorp.com for custom quotes on larger orders.
+
+Q: What is your price matching policy?
+A: We match prices from authorized retailers on identical products. Submit a price match request within 14 days of purchase with proof of the lower price.
+
+Q: How do I contact customer support?
+A: You can reach us via:
+- Email: support@acmecorp.com
+- Phone: 1-800-ACME-HELP (Monday-Friday, 9AM-6PM EST)
+- Live Chat: Available 24/7 on our website
+- Support Portal: help.acmecorp.com
+
+Q: Do your products come with installation?
+A: Free installation is included with all furniture purchases over $500. Electronic product setup assistance is available for $49.99 or included with our Premium Support plan ($99/year).
+
+Q: What is the SmartHome Hub compatible with?
+A: The ACME SmartHome Hub is compatible with over 500 devices including Philips Hue, Ring, Nest, Ecobee, August, and most Zigbee and Z-Wave devices. Check our compatibility list at acmecorp.com/smarthome/compatible.

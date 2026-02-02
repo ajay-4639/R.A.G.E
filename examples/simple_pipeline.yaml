@@ -1,0 +1,119 @@
+# Simple RAG Pipeline Example
+# This pipeline demonstrates basic document ingestion, chunking, embedding, and retrieval
+
+name: simple-rag-pipeline
+version: "1.0.0"
+description: A basic RAG pipeline for document Q&A
+
+metadata:
+  author: RAG OS Team
+  created: "2024-01-01"
+  tags:
+    - example
+    - basic
+
+default_config:
+  log_level: info
+
+steps:
+  - step_id: ingest_documents
+    step_type: ingestion
+    step_class: TextFileIngestionStep
+    config:
+      source_path: ./documents
+      file_patterns:
+        - "*.txt"
+        - "*.md"
+      encoding: utf-8
+
+  - step_id: chunk_text
+    step_type: chunking
+    step_class: TokenAwareChunkingStep
+    config:
+      chunk_size: 512
+      chunk_overlap: 50
+      tokenizer: cl100k_base
+    dependencies:
+      - ingest_documents
+
+  - step_id: embed_chunks
+    step_type: embedding
+    step_class: OpenAIEmbeddingStep
+    config:
+      model: text-embedding-3-small
+      batch_size: 100
+    dependencies:
+      - chunk_text
+    retry_policy:
+      max_retries: 3
+      backoff_seconds: 1.0
+      backoff_multiplier: 2.0
+
+  - step_id: index_vectors
+    step_type: indexing
+    step_class: ChromaDBIndexStep
+    config:
+      collection_name: documents
+      persist_directory: ./chroma_db
+    dependencies:
+      - embed_chunks
+
+  - step_id: retrieve_chunks
+    step_type: retrieval
+    step_class: TopKRetrievalStep
+    config:
+      top_k: 5
+      score_threshold: 0.7
+    dependencies:
+      - index_vectors
+
+  - step_id: rerank_results
+    step_type: reranking
+    step_class: CrossEncoderRerankingStep
+    config:
+      model: cross-encoder/ms-marco-MiniLM-L-6-v2
+      top_n: 3
+    dependencies:
+      - retrieve_chunks
+    enabled: true
+
+  - step_id: assemble_prompt
+    step_type: prompt_assembly
+    step_class: PromptAssemblyStep
+    config:
+      template_id: default-qa
+      max_context_tokens: 3000
+      include_citations: true
+    dependencies:
+      - rerank_results
+
+  - step_id: generate_answer
+    step_type: llm_execution
+    step_class: OpenAILLMStep
+    config:
+      model: gpt-4
+      temperature: 0.7
+      max_tokens: 1000
+    dependencies:
+      - assemble_prompt
+    fallback_step: generate_answer_fallback
+
+  - step_id: generate_answer_fallback
+    step_type: llm_execution
+    step_class: OpenAILLMStep
+    config:
+      model: gpt-3.5-turbo
+      temperature: 0.7
+      max_tokens: 1000
+    dependencies:
+      - assemble_prompt
+    enabled: false
+
+  - step_id: format_output
+    step_type: post_processing
+    step_class: CitationFormattingStep
+    config:
+      citation_style: numbered
+      include_sources: true
+    dependencies:
+      - generate_answer

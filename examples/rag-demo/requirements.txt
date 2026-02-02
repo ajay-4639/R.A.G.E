@@ -1,0 +1,26 @@
+# RAG OS Demo Dependencies
+
+# Web framework
+fastapi>=0.104.0
+uvicorn>=0.24.0
+jinja2>=3.1.0
+python-multipart>=0.0.6
+
+# RAG OS core (install from parent directory)
+# pip install -e ../../
+
+# Vector store
+qdrant-client>=1.7.0
+
+# LLM & Embeddings
+openai>=1.0.0
+
+# PDF parsing
+pymupdf>=1.23.0
+
+# Environment
+python-dotenv>=1.0.0
+
+# Core dependencies (also needed by rag_os)
+pydantic>=2.0.0
+pyyaml>=6.0

@@ -1,0 +1,33 @@
+ACME Corp Company Policies
+
+1. RETURN POLICY
+All products purchased from ACME Corp may be returned within 30 days of purchase for a full refund.
+Electronics must be returned within 15 days and must include all original packaging and accessories.
+Custom-made products are non-refundable.
+Shipping costs for returns are covered by ACME Corp for defective items only.
+
+2. WARRANTY POLICY
+All electronic products come with a 2-year manufacturer warranty.
+Furniture items have a 5-year structural warranty.
+Software products include 1 year of free updates and support.
+Extended warranty plans are available for purchase at checkout.
+
+3. EMPLOYEE LEAVE POLICY
+Full-time employees are entitled to 20 days of paid time off (PTO) per year.
+Sick leave is provided at 10 days per year and does not roll over.
+Parental leave is 12 weeks paid for primary caregivers and 4 weeks for secondary caregivers.
+Remote work is permitted up to 3 days per week with manager approval.
+
+4. DATA PRIVACY POLICY
+Customer data is encrypted at rest using AES-256 encryption.
+Personal information is never shared with third parties without explicit consent.
+Users can request deletion of their data at any time through the privacy portal.
+All data processing complies with GDPR and CCPA regulations.
+Data retention period is 3 years from last interaction, after which data is automatically purged.
+
+5. SHIPPING POLICY
+Standard shipping is free for orders over $50.
+Express shipping (2-3 business days) is available for $9.99.
+Overnight shipping is available for $24.99.
+International shipping rates vary by destination and are calculated at checkout.
+Orders placed before 2 PM EST ship the same business day.
